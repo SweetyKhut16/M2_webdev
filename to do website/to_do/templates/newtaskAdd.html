@@ -1,0 +1,29 @@
+{% extends './common/base.html' %} 
+
+ 
+ {% load static %}
+ {% load widget_tweaks %}
+ {% block content %}
+
+<main class="page projects-page">
+    <section class="portfolio-block projects-cards">
+        <h2 style="text-align: center">Add Task</h2>
+    <form action="{% url 'newtaskAdd' %}" method="post">
+        {% csrf_token %}
+
+        <label>Name</label>
+        {% render_field form.name  class="myname" %}
+        <br>
+        <label>Description</label>
+        {% render_field form.description %}
+        <br>
+        <label>Deadline</label>
+        {% render_field form.deadline %}
+        <br>
+        <button type="submit">Submit</button>
+
+
+    </form>
+    </section>
+</main>
+ {% endblock %}   
